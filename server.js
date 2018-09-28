@@ -213,10 +213,10 @@ app.put('/adminlogin/stucourse',(req,res)=>{
 
 
 const port = 5000;
-app.listen(port, () => {
-    console.log(`server running on port ${port}`);
-});
+app.listen(process.env.PORT || 8080 ,()=>{ 
 
+    });
+    
 
 
 
