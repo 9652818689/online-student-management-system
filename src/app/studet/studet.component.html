@@ -1,0 +1,141 @@
+
+<div *ngIf="b">
+  <form #a="ngForm" (ngSubmit)="update(a)">
+    <div class="row">
+
+      <div class="col-5">
+        <div class="form-group">
+          <label for="j">Enter Enrollement Id*</label>
+          <input type="text" id="j" name="EnrollementId" class="form-control" name="EnrollementId" [(ngModel)]="obj.EnrollementId">
+          <div class="mt-5">
+          </div>
+
+
+          <div class="form-group">
+            <label for="d">Enter First Name*</label>
+            <input type="text" id="d" name="FirstName" class="form-control" name="FirstName" [(ngModel)]="obj.FirstName">
+          </div>
+
+          <div class="form-group">
+            <label for="p">Enter Last Name:</label>
+            <input type="text" id="p" name="LastName" class="form-control" [(ngModel)]="obj.LastName">
+          </div>
+
+          <div class="form-group">
+            <label for="i">Enter Country*</label>
+            <input type="text" id="i" name="Country" class="form-control" name="Country" [(ngModel)]="obj.Country">
+          </div>
+
+          <label>Gender:</label>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" name="Gender" class="form-check-input" value="male" [(ngModel)]="obj.Gender1"> Male
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" name="Gender" class="form-check-input" value="female" [(ngModel)]="obj.Gender2"> Female
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-5">
+        <div class="form-group">
+          <label for="c">Enter Eail Id*</label>
+          <input type="text" id="c" name="EailId" class="form-control" [(ngModel)]="obj.EailId"> 2 characters required
+        </div>
+
+        <div class="form-group">
+          <label for="a">Enter State Name:</label>
+          <input type="text" id="a" name="StateName" class="form-control" [(ngModel)]="obj.StateName">
+        </div>
+
+        <div class="form-group">
+          <label for="e">Enter Address:</label>
+          <textarea id="e" name="Address" class="form-control" rows="5" [(ngModel)]="obj.Address"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="k">Enter Student Id*</label>
+          <input type="text" id="k" name="StudentId" class="form-control" [(ngModel)]="obj.StudentId">
+        </div>
+
+        <div class="form-group">
+          <label for="l">Enter Student password*</label>
+          <input type="password" id="l" name="Studentpw" class="form-control" [(ngModel)]="obj.Studentpw">
+        </div>
+
+      </div>
+      <div class="col-2">
+        <div class="form-group">
+          <label for="o">Spring semester:</label>
+          <input type="text" id="o" name="Springsemester" class="form-control" [(ngModel)]="obj.Springsemester">
+        </div>
+
+        <div class="form-group">
+          <label for="m">Fall semester:</label>
+          <input type="text" id="m" name="Fallsemester" class="form-control" [(ngModel)]="obj.Fallsemester">
+        </div>
+
+        <div class="form-group">
+          <label for="n">Summer semester:</label>
+          <input type="textarea" id="n" name="Summersemester" class="form-control" [(ngModel)]="obj.Summersemester">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-left:480px" (click)="update()">Update</button>
+    </div>
+  </form>
+
+</div>
+<br/><br/><br/>
+
+
+        Search<input type="text" class="form-control" [(ngModel)]="searchTerm"><br/>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <table border="2">
+        <thead>
+            <th>Enrollement Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Country</th>
+            <th>Gender</th>
+            <th>Eail Id</th>
+            <th>State Name</th>
+            <th>Address</th>
+            <th>Student Id</th>
+            <th>Student password</th>
+            <th>Spring semester</th>
+            <th>Fall semester</th>
+            <th>Summer semester</th>
+            <th>Delete row</th>
+            <th>Edit Data</th>
+          </thead>
+
+          <tr *ngFor="let i of arr | stupipe:searchTerm;let x=index">
+
+            <td>{{i.EnrollementId}}</td>
+            <td>{{i.FirstName}}</td>
+            <td>{{i.LastName}}</td>
+            <td>{{i.Country}}</td>
+            <td>{{i.Gender}}</td>
+            <td>{{i.EailId}}</td>
+            <td>{{i.StateName}}</td>
+            <td>{{i.Address}}</td>
+            <td>{{i.StudentId}}</td>
+            <td>{{i.Studentpassword}}</td>
+            <td>{{i.Springsemester}}</td>
+            <td>{{i.Fallsemester}}</td>
+            <td>{{i.Summersemester}}</td>
+            <td><button type="button" class="btn btn-danger" (click)="delete(i._id)">Delte</button></td>
+            <td><button type="button" class="btn btn-info" (click)="edit(i)">Edit</button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+

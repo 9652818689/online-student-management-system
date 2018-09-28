@@ -1,0 +1,47 @@
+[
+    {
+        "EnrollementId": "10",
+        "FirstName": "ravi",
+        "LastName": "kiran",
+        "Country": "India",
+        "Gender": "male",
+        "EailId": "vijakadamati@gmail.com",
+        "StateName": "ap",
+        "Address": "9652818689",
+        "StudentId": "101",
+        "Studentpassword": "vijay-777",
+        "Springsemester": "first",
+        "Fallsemester": "second",
+        "Summersemester": "third"
+    },
+    {
+        "EnrollementId": "20",
+        "FirstName": "suresh",
+        "LastName": "kumar",
+        "Country": "India",
+        "Gender": "male",
+        "EailId": "vijakadamati@gmail.com",
+        "StateName": "ap",
+        "Address": "9652818689",
+        "StudentId": "102",
+        "Studentpassword": "vijay-777",
+        "Springsemester": "first",
+        "Fallsemester": "second",
+        "Summersemester": "third"
+    },
+    {
+        "EnrollementId": "30",
+        "FirstName": "vijay",
+        "LastName": "kumar",
+        "Country": "India",
+        "Gender": "male",
+        "EailId": "vijakadamati@gmail.com",
+        "StateName": "ap",
+        "Address": "9652818689",
+        "StudentId": "103",
+        "Studentpassword": "kumar-777",
+        "Springsemester": "first",
+        "Fallsemester": "second",
+        "Summersemester": "third"
+    }
+]

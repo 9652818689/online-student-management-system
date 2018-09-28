@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="jumbotron">
+  
+      <form #a="ngForm" (ngSubmit)="submit(a.value)">
+        <div class="row">
+  
+          <div class="col-5">
+            <div class="form-group">
+              <label for="b">Enter Name:</label>
+              <input type="text" id="b" name="Name" class="form-control" required #ref1=ngModel  [(ngModel)]="Name">
+              <p *ngIf="ref1.touched&&ref1.invalid" class="alert alert-danger">*field mandatory</p>
+            </div>
+            <div class="form-group">
+              <label for="d">Enter Emrollement Id:</label>
+              <input type="text" id="d" name="Branch" class="form-control" required minlength="2" #ref3=ngModel [(ngModel)]="Branch">
+              <p *ngIf="ref3.dirty&&ref3.invalid&&ref3.errors?.minlength" class="alert alert-danger">minimum 2 characters are enter </p>
+            </div>
+            <div class="form-group">
+              <label for="e">Enter Email Id:</label>
+              <input type="text" id="e" name="id" class="form-control" required pattern="(?=.*[a-z])(?=.*[A-Z]).{4,}" #t=ngModel [(ngModel)]="id">
+              <p *ngIf="t.dirty&&t.invalid&&t.errors?.pattern" class="alert alert-danger">id must be one smaller letter and one capital letter </p>
+            </div>
+            <div class="form-group">
+              <label for="i">Create User Id:</label>
+              <input type="text" id="i" name="UserId" class="form-control" required minlength="2" #ref5=ngModel [(ngModel)]="UserId">
+              <p *ngIf="ref5.dirty&&ref5.invalid&&ref5.errors?.minlength" class="alert alert-danger">minimum 2 characters are enter </p>
+            </div>
+            <div class="form-group">
+                <label for="j">Create Password:</label>
+                <input type="password" id="j" name="password" class="form-control" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" #ref6=ngModel [(ngModel)]="password">
+                <p *ngIf="ref6.dirty&&ref6.invalid&&ref6.errors?.pattern" class="alert alert-danger">password must be one number,ane smaller and one capital letter </p>
+              </div>
+            <div class="mt-5">
+              <button type="submit" class="btn btn-primary" style="margin-left:150px">Register</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  
+  </div>
+  <router-outlet></router-outlet>

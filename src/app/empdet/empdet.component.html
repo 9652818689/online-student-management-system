@@ -1,0 +1,92 @@
+<div *ngIf="b">
+  <form #a="ngForm" (ngSubmit)="update()">
+    <div class="row">
+
+      <div class="col-5">
+        <div class="form-group">
+          <label for="b">Enter Enrollement Id*</label>
+          <input type="text" id="b" name="EnrollementId" class="form-control" name="EnrollementId" [(ngModel)]="obj.EnrollementId">
+        </div>
+        <div class="form-group">
+          <label for="d">Enter First Name:</label>
+          <input type="text" id="d" name="FirstName" class="form-control" name="EnrollementId" [(ngModel)]="obj.FirstName">
+        </div>
+        <div class="form-group">
+          <label for="e">Enter Last Name:</label>
+          <input type="text" id="e" name="LastName" class="form-control" [(ngModel)]="obj.LastName">
+        </div>
+        <div class="form-group">
+          <label for="i">Enter Country:</label>
+          <input type="text" id="i" name="Country" class="form-control" name="Country" [(ngModel)]="obj.Country">
+
+        </div>
+        <label>Gender:</label>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" name="Gender" class="form-check-input" value="male" [(ngModel)]="obj.Gender1"> Male
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" name="Gender" class="form-check-input" value="female" [(ngModel)]="obj.Gender2"> Female
+          </label>
+        </div>
+      </div>
+      <div class="col-5">
+        <div class="form-group">
+          <label for="b">Enter Eail Id:</label>
+          <input type="text" id="b" name="EailId" class="form-control" name="EailId" #ref4=ngModel [(ngModel)]="obj.EailId">
+        </div>
+        <div class="form-group">
+          <label for="d">Enter State Name:</label>
+          <input type="text" id="d" name="StateName" class="form-control" name="StateName" #ref5=ngModel [(ngModel)]="obj.StateName">
+        </div>
+        <div class="form-group">
+          <label for="e">Enter Address:</label>
+          <textarea id="e" name="Address" class="form-control" rows="5" [(ngModel)]="obj.Address"></textarea>
+        </div>
+      </div>
+      <div class="mt-5">
+        <button type="submit" class="btn btn-primary" style="margin-left:460px">Update</button>
+
+      </div>
+    </div>
+  </form>
+</div>
+<br/><br/><br/> Search
+
+<input type="text" class="form-control" [(ngModel)]="searchTerm"><br/>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <table border="2">
+        <thead>
+          <th>Enrollement Id</th>
+          <th>FirstName</th>
+          <th>LastName</th>
+          <th>Country</th>
+          <th>Gender</th>
+          <th>EailId</th>
+          <th>State Name</th>
+          <th>Address</th>
+          <th>Delete row</th>
+          <th>Edit Data</th>
+        </thead>
+
+        <tr *ngFor="let i of arr2 | emppipe:searchTerm;let x=index">
+          <td>{{i.EnrollementId}}</td>
+          <td>{{i.FirstName}}</td>
+          <th>{{i.LastName}}</th>
+          <th>{{i.Country}}</th>
+          <td>{{i.Gender}}</td>
+          <td>{{i.EailId}}</td>
+          <td>{{i.StateName}}</td>
+          <td>{{i.Address}}</td>
+          <td><button type="button" class="btn btn-danger" (click)="delete(i._id)">Delete</button></td>
+          <td><button type="button" class="btn btn-success" (click)="edit(i)">Edit</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

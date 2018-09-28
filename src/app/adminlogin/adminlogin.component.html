@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg bg-dark mt-5 bg-danger">
+        <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId1" aria-controls="collapsibleNavId">
+                <span class="navbar-toggler-icon"></span></button>
+    <ul class="navbar-nav" id="collapsibleNavId1">
+        <li class="nav-item">
+            <a routerLink="home1" class="nav-link text-light">Home</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="contact" class="nav-link text-light">contact</a>
+        </li>
+        <li class="nav-item dropdown" data-toggle="dropdown">
+            <a routerLink="view" class="nav-link text-light dropdown-toggle" data-toggle="dropdown">View</a>
+            <div class="dropdown-menu" #a>
+                <a class="dropdown-item" routerLink="studet">student details</a>
+                <a class="dropdown-item" routerLink="stucourse">course details</a>
+                <a class="dropdown-item" routerLink="empdet">employee details</a>
+            </div>
+        </li>
+
+        <li class="nav-item" style="margin-left:900px">
+            <a routerLink="" class="nav-link text-light">Logout</a>
+        </li>
+    </ul>
+</nav>
+
+
+<div class="row">
+    <div class="col-2 mt-5" >
+
+        <a class="text-danger display-5" routerLink="addstudents"><b>add students</b></a><br/><br/><br/><br/><br/><br/>
+        <a class="text-danger display-5" routerLink="addemployee"><b>add employee</b></a><br/><br/><br/><br/><br/><br/>
+        <a class="text-danger display-5" routerLink="addcourses"><b>add courses</b></a><br/><br/><br/><br/><br/><br/>
+        <a class="text-danger display-5" routerLink="addadmin"><b>add admin</b></a>
+
+    </div>
+    <div class="col-10 mt-5">
+        <router-outlet></router-outlet>
+    </div>
+</div>

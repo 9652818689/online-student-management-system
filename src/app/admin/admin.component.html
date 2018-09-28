@@ -1,0 +1,18 @@
+<form #un="ngForm" (ngSubmit)="onSubmit(un.value)">
+  <div class="form-group">
+    <label for="1">Enter Admin Id:</label>
+    <input type="text" id="1" class="form-control" name="AdminId" [(ngModel)]="AdminId" placeholder="enter username or id here" >
+  </div>
+  <div class="form-group">
+    <label for="2">Enter Admin Password:</label>
+    <input type="{{r?'text':'password'}}" id="2" pattern="" class="form-control" #ref="ngModel"
+     [(ngModel)]="password" placeholder="enter password here" name="password" >
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input" [(ngModel)]="r" name="show password">Show Password 
+    </label>
+  </div><br/>
+  <button type="submit" class="btn btn-primary mx-auto d-block col-12" data-toggle="modal" data-target="#a">Login</button>
+</form>
+<router-outlet></router-outlet>

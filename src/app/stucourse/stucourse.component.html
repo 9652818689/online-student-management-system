@@ -1,0 +1,56 @@
+<div *ngIf="b">
+  <form #a="ngForm" (ngSubmit)="update(a)">
+    <div class="row">
+
+      <div class="col-5">
+        <div class="form-group">
+          <label for="b">Type of course:</label>
+          <input type="text" id="b" name="Typeofcourse" class="form-control" [(ngModel)]="obj.Typeofcourse">
+        </div>
+        <div class="form-group">
+          <label for="d">Branch:</label>
+          <input type="text" id="d" name="Branch" class="form-control" [(ngModel)]="obj.Branch">
+        </div>
+        <div class="form-group">
+          <label for="e">Affiliated to:</label>
+          <input type="text" id="e" name="Affiliated" class="form-control" [(ngModel)]="obj.Affiliated">
+        </div>
+        <div class="form-group">
+          <label for="i">Enter fee Details:</label>
+          <input type="text" id="i" name="fee" class="form-control" [(ngModel)]="obj.fee">
+        </div>
+
+        <div class="mt-2">
+          <button type="submit" class="btn btn-primary" style="margin-left:150px" (click)="update()">Update</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div><br/>
+<br/><br/><br/>
+
+Search<input type="text" class="form-control" [(ngModel)]="searchTerm"><br/>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <table border="2">
+        <thead>
+          <th>Type of Course</th>
+          <th>Branch</th>
+          <th>Affiliated To</th>
+          <th>Fee details</th>
+          <th>Delete row</th>
+          <th>Edit Data</th>
+        </thead>
+        <tr *ngFor="let i of arr1 | coupipe:searchTerm;let x=index">
+          <td>{{i.Typeofcourse}}</td>
+          <td>{{i.Branch}}</td>
+          <th>{{i.Affiliated}}</th>
+          <td>{{i.fee}}</td>
+          <td><button type="button" class="btn btn-danger" (click)="delete(i._id)">Delete</button></td>
+          <td><button type="button" class="btn btn-success" (click)="edit(i)">Edit</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

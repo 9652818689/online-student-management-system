@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4 mt-4">
+      <h1>Are you a Admin?</h1>
+      <a class="text-danger" routerLink="AdminLogin" (click)="AdminLogin()">Login</a>
+    </div>
+    <div class="col-4 mt-4">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-4 mt-4">
+      <h1>Are you a Student?</h1>
+
+      <a class="text-danger" routerLink="StudentLogin" (click)="StudentLogin()">Login</a>
+    </div>
+  </div>
+</div>

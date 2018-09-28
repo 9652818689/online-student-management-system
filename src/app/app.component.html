@@ -1,0 +1,32 @@
+<div class="container-fluid bg-success ml-5 mr-5 mt-3">
+    <div class="row">
+        <div class="col-2">
+            <nav class="navbar navbar-expand-lg nav-tabs  navbar-light  rounded sticky-top">
+
+                <a href="" class="nav-brand">
+                    <img src="assets\uni_profile_48531.jpg" width="100px" height="100px">
+                </a>
+                <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId1" aria-controls="collapsibleNavId">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="col-6">
+                    <h1 style="margin-left:28%"><b>Delft University of Technology </b></h1>
+                </div>
+                <div class="col-4 collapse navbar-collapse"  id="collapsibleNavId1">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item" style="margin-left:800px">
+                            <a routerLink="Home" class="nav-link text-light" (click)="hidelog1()"><b>Home</b></a>
+                        </li>
+                        <li class="nav-item text-dark">
+                            <a *ngIf="b" routerLink="Login" class="nav-link text-light" (click)="hidelog()"><b>Login</b></a>
+                        </li>
+                        <li class="nav-item text-dark">
+                            <a routerLink="About" class="nav-link text-light" (click)="hidelog2()"><b>About</b></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

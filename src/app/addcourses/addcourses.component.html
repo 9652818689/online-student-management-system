@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="jumbotron">
+
+    <form #a="ngForm" (ngSubmit)="submit(a.value)">
+      <div class="row">
+
+        <div class="col-5">
+          <div class="form-group">
+            <label for="b">Type of course:</label>
+            <input type="text" id="b" name="Typeofcourse" class="form-control" required #ref1=ngModel [(ngModel)]="Typeofcourse">
+            <p *ngIf="ref1.touched&&ref1.invalid" class="alert alert-danger">*field mandatory</p>
+          </div>
+          <div class="form-group">
+            <label for="d">Branch:</label>
+            <input type="text" id="d" name="Branch" class="form-control" required #ref2=ngModel [(ngModel)]="Branch">
+            <p *ngIf="ref2.touched&&ref2.invalid" class="alert alert-danger">*field mandatory</p>
+          </div>
+          <div class="form-group">
+            <label for="e">Affiliated to:</label>
+            <input type="text" id="e" name="Affiliated" class="form-control" required #ref3=ngModel [(ngModel)]="Affiliated">
+            <p *ngIf="ref3.touched&&ref3.invalid" class="alert alert-danger">*field mandatory</p>
+          </div>
+          <div class="form-group">
+            <label for="i">Enter fee Details:</label>
+            <input type="text" id="i" name="fee" class="form-control" [(ngModel)]="fee">
+          </div>
+
+          <div class="mt-5">
+            <button type="submit" class="btn btn-primary" style="margin-left:150px">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+<router-outlet></router-outlet>
