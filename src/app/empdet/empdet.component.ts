@@ -16,6 +16,7 @@ export class EmpdetComponent implements OnInit {
   EailId:string="";
   StateName:string="";
   Address:string="";
+  searchTerm:string="";
   
   arr2:object[]=[];
   obj:any={};

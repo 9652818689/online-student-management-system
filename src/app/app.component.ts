@@ -8,14 +8,14 @@ import { Component } from '@angular/core';
 export class AppComponent{
 
   b:boolean=true;
-  hidelog(b):void
+  hidelog():void
   {
     this.b=!this.b;
   }
-  hidelog1(b):void{
+  hidelog1():void{
     this.b=true;
   }
-  hidelog2(b):void{
+  hidelog2():void{
     this.b=true;
   }
 }

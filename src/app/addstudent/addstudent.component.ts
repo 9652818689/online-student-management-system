@@ -13,7 +13,7 @@ export class AddstudentComponent implements OnInit {
   LastName:string="";
   Country:string="";
   Gender1:string="";
-  Gende2:string="";
+  Gender2:string="";
   EailId:string="";
   StateName:string="";
   Address:string="";
