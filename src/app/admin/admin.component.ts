@@ -14,7 +14,6 @@ export class AdminComponent  {
   r:string="";
   showpassword:string="";
 
-
   constructor(private router:Router,private ds:SerService) {
   }
 
