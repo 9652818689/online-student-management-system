@@ -13,7 +13,6 @@ export class AddadminComponent implements OnInit {
   id:string="";
   UserId:string="";
   password:string="";
-  
 
   data=[];
   ngOnInit() {

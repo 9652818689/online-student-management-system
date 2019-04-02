@@ -56,7 +56,7 @@ export class SerService {
    console.log(this.p);
    return this.hc.post('/Login/AdminLogin',this.p)
  }
-
+ 
  sentData(data):Observable<any>{
   this.p=data;
   console.log(this.p);

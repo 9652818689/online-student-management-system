@@ -27,8 +27,10 @@
             </div>
             <div class="form-group">
                 <label for="j">Create Password:</label>
-                <input type="password" id="j" name="password" class="form-control" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" #ref6=ngModel [(ngModel)]="password">
-                <p *ngIf="ref6.dirty&&ref6.invalid&&ref6.errors?.pattern" class="alert alert-danger">password must be one number,ane smaller and one capital letter </p>
+                <input type="password" id="j" name="password" class="form-control" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                 #ref6=ngModel [(ngModel)]="password">
+                <p *ngIf="ref6.dirty&&ref6.invalid&&ref6.errors?.pattern" class="alert alert-danger">password must be one number,ane smaller
+                   and one capital letter </p>
               </div>
             <div class="mt-5">
               <button type="submit" class="btn btn-primary" style="margin-left:150px">Register</button>

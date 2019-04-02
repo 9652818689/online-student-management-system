@@ -16,16 +16,18 @@
 // })
 // app.listen(5000);
 
+
+
 var exp = require('express');
 var app = exp();
 var mongo = require('mongodb').MongoClient;
 var path = require('path');
 var bodyparser = require('body-parser');
 app.use(bodyparser.json());
-var mongoose=require('mongoose');
+var mongoose = require('mongoose');
 
 var dbo;
-mongo.connect('mongodb://vijay143:1qaz2WSX@ds213183.mlab.com:13183/studentonline', (err, db) => {
+mongo.connect('mongodb://vijay7181:kumar7181@ds213183.mlab.com:13183/studentonline', (err, db) => {
 
     app.use(exp.static(path.join(__dirname, 'dist/project')));
     if (err) throw err;
@@ -84,6 +86,7 @@ app.post('/adminlogin/addcourses', (req, res) => {
 
         if (err) throw err;
         res.send({ "data": "saved successfully" });
+
     });
 
 });
@@ -122,14 +125,14 @@ app.get('/adminlogin/empdet', (req, res) => {
     })
 })
 
-app.delete('/adminlogin/studet/:id',(req,res)=>{
+app.delete('/adminlogin/studet/:id', (req, res) => {
     console.log(req.params.id);
     console.log('delete op is responding');
-    var objid3=mongoose.Types.ObjectId(req.params.id);
-    dbo.collection('admlog').remove({_id:objid3},(err,result)=>{
-        if(err) throw err;
-        dbo.collection('admlog').find().toArray((err,data)=>{
-            if(err) throw err;
+    var objid3 = mongoose.Types.ObjectId(req.params.id);
+    dbo.collection('admlog').remove({ _id: objid3 }, (err, result) => {
+        if (err) throw err;
+        dbo.collection('admlog').find().toArray((err, data) => {
+            if (err) throw err;
             res.send(data);
         })
     })
@@ -137,68 +140,80 @@ app.delete('/adminlogin/studet/:id',(req,res)=>{
 
 
 
-app.delete('/adminlogin/empdet/:id',(req,res)=>{
+app.delete('/adminlogin/empdet/:id', (req, res) => {
     console.log(req.params.id);
     console.log('delete op is responding');
-    var objid1=mongoose.Types.ObjectId(req.params.id);
-    dbo.collection('empdet').remove({_id:objid1},(err,result)=>{
-        if(err) throw err;
-        dbo.collection('empdet').find().toArray((err,data)=>{
-            if(err) throw err;
+    var objid1 = mongoose.Types.ObjectId(req.params.id);
+    dbo.collection('empdet').remove({ _id: objid1 }, (err, result) => {
+        if (err) throw err;
+        dbo.collection('empdet').find().toArray((err, data) => {
+            if (err) throw err;
             res.send(data);
         })
     })
 })
 
-app.delete('/adminlogin/stucourse/:id',(req,res)=>
-{
+app.delete('/adminlogin/stucourse/:id', (req, res) => {
     console.log(req.params.id);
     console.log('delete ope is res');
-    var objid=mongoose.Types.ObjectId(req.params.id);
-    dbo.collection('coulog').remove({_id:objid},(err,result)=>{
-        if(err) throw err;
-        dbo.collection('coulog').find().toArray((err,data)=>
-    {
-        if(err) throw err;
-        res.send(data);
-    })
+    var objid = mongoose.Types.ObjectId(req.params.id);
+    dbo.collection('coulog').remove({ _id: objid }, (err, result) => {
+        if (err) throw err;
+        dbo.collection('coulog').find().toArray((err, data) => {
+            if (err) throw err;
+            res.send(data);
+        })
     })
 })
 
-app.put('/adminlogin/studet',(req,res)=>{
+app.put('/adminlogin/studet', (req, res) => {
     console.log(req.body);
-    var objid=mongoose.Types.ObjectId(req.body._id);
-    dbo.collection('admlog').update({_id:objid},{EnrollementId:req.body.EnrollementId,FirstName:req.body.FirstName,LastName:req.body.LastName,Country:req.body.Country,Gender:req.body.Gender,EailId:req.body.EailId,StateName:req.body.StateName,Address:req.body.Address,StudentId:req.body.StudentId,Studentpassword:req.body.Studentpassword,Springsemester:req.body.Springsemester,Fallsemester:req.body.Fallsemester,Summersemester:req.body.Summersemester},(err,result)=>{
-        if(err) throw err;
-        dbo.collection('admlog').find().toArray((err,data)=>{
-            if(err) throw err;
+    var objid = mongoose.Types.ObjectId(req.body._id);
+    dbo.collection('admlog').update({ _id: objid },
+        {
+            EnrollementId: req.body.EnrollementId, FirstName: req.body.FirstName,
+            LastName: req.body.LastName, Country: req.body.Country, Gender: req.body.Gender, EailId: req.body.EailId,
+            StateName: req.body.StateName, Address: req.body.Address, StudentId: req.body.StudentId,
+            Studentpassword: req.body.Studentpassword,
+            Springsemester: req.body.Springsemester, Fallsemester: req.body.Fallsemester, Summersemester: req.body.Summersemester
+        }, (err, result) => {
+            if (err) throw err;
+            dbo.collection('admlog').find().toArray((err, data) => {
+                if (err) throw err;
+                res.send(data);
+                console.log(data);
+            })
+        })
+})
+
+app.put('/adminlogin/empdet', (req, res) => {
+    console.log(req.body);
+    var objid = mongoose.Types.ObjectId(req.body._id);
+    dbo.collection('stulog').update({ _id: objid }, {
+        EnrollementId: req.body.EnrollementId, FirstName: req.body.FirstName,
+        LastName: req.body.LastName, Country: req.body.Country, Gender: req.body.Gender, EailId: req.body.EailId,
+        StateName: req.body.StateName, Address: req.body.Address
+    }, (err, result) => {
+        if (err) throw err;
+        dbo.collection('stulog').find().toArray((err, data) => {
+            if (err) throw err;
             res.send(data);
             console.log(data);
         })
     })
 })
 
-app.put('/adminlogin/empdet',(req,res)=>{
-    console.log(req.body);
-    var objid=mongoose.Types.ObjectId(req.body._id);
-    dbo.collection('stulog').update({_id:objid},{EnrollementId:req.body.EnrollementId,FirstName:req.body.FirstName,LastName:req.body.LastName,Country:req.body.Country,Gender:req.body.Gender,EailId:req.body.EailId,StateName:req.body.StateName,Address:req.body.Address},(err,result)=>{
-        if(err) throw err;
-        dbo.collection('stulog').find().toArray((err,data)=>{
-            if(err) throw err;
-            res.send(data);
-            console.log(data);
-        })
-    })
-})
 
-
-app.put('/adminlogin/stucourse',(req,res)=>{
+app.put('/adminlogin/stucourse', (req, res) => {
     console.log(req.body);
-    var objid=mongoose.Types.ObjectId(req.body._id);
-    dbo.collection('coulog').update({_id:objid},{Typeofcourse:req.body.Typeofcourse,Branch:req.body.Branch,Affiliated:req.body.Affiliated,fee:req.body.fee},(err,result)=>{
-        if(err) throw err;
-        dbo.collection('coulog').find().toArray((err,data)=>{
-            if(err) throw err;
+    var objid = mongoose.Types.ObjectId(req.body._id);
+    dbo.collection('coulog').update({ _id: objid }, {
+        Typeofcourse: req.body.Typeofcourse, Branch: req.body.Branch,
+        Affiliated: req.body.Affiliated, fee: req.body.fee
+    }, (err, result) => {
+        if (err) throw err;
+        dbo.collection('coulog').find().toArray((err, data) => {
+            if (err) throw err;
             res.send(data);
             console.log(data);
         })
@@ -213,10 +228,10 @@ app.put('/adminlogin/stucourse',(req,res)=>{
 
 
 const port = 5000;
-app.listen(process.env.PORT || 8080 ,()=>{ 
+app.listen(process.env.PORT || 8080, () => {
 
-    });
-    
+});
+
 
 
 

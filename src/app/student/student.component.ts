@@ -35,9 +35,6 @@ export class StudentComponent implements OnInit {
     });
   }
 
-
-
-
   // un:string="student";
   // pw:string="student";
   // msg:string="";
